@@ -1,4 +1,5 @@
 import pymongo
+import os
 
 # Klasse der Datenbank
 # Ist ein Singleton, d.h. es kann global nur eine Instanz erzeugt werden
@@ -19,8 +20,7 @@ class Database:
         return Database.__instance
 
     def __init__(self):
-        self.conn = pymongo.MongoClient(
-            "mongodb+srv://niklas-admin:niklas-admin@primary.t8iub.mongodb.net/meta?retryWrites=true&w=majority")
+        self.conn = pymongo.MongoClient(os.getenv('MONGO_DB_URI'))
         Database.__instance = self
 
     def setDatabase(self, db):

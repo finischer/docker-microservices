@@ -6,9 +6,11 @@ from flask_cors import CORS
 from src.database import Database
 from src.routes import Routes
 
+import os
+
 
 app = Flask(__name__)
-app.config['JWT_SECRET_KEY'] = "\xda\xe4\xf0\xe9v\x80\xf1Z\xbdw\xef\x07u\xa1C\xac"
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 
 CORS(app, resources={r"/api/*"})
 
