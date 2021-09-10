@@ -12,13 +12,17 @@ import uuid
 import datetime
 
 
+# API konfigurieren
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = os.getenv("JWT_SECRET_KEY")
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['DEBUG'] = True
 
-
+# Datenbank wird initialisiert
 db = Database().getInstance()
+
+# --- Beginn Endpoints ---
+
 
 @app.route("/")
 @app.route("/home")
@@ -32,10 +36,12 @@ def all_products():
 
     collection = db.col
 
+    # Alle Produkte werden aufgerufen
     query_response = collection.find({})
 
     products = []
     
+    # Für jedes Produkt in query_response wird Produkt in Liste angehängt
     for product in query_response:
         products.append(product)
     
@@ -47,8 +53,10 @@ def add_product():
     db.setCollection('produkte')
     collection = db.col
 
+    # AddForm wird erstellt
     form = AddProductForm()
 
+    # Wenn Form abgeschickt wird, dann erstelle neues Produkt und füge es in die Datenbank ein
     if form.validate_on_submit():
         product_name = request.form['product_name']
         aktueller_tag = datetime.date.today().strftime("%d.%m.%Y")
@@ -60,6 +68,8 @@ def add_product():
         }
 
         collection.insert_one(product)
+        
+        # Nachricht, die als Feedback für den User dient
         flash('Produkt wurde erfolgreich hinzugefügt!', 'success')
         return redirect(url_for('all_products'))
 
@@ -83,16 +93,22 @@ def edit_product(id):
     
     product = collection.find_one({"_id": id})
 
+    # EditForm wird erstellt
     form = EditProductForm()
 
     if form.validate_on_submit():
         product_name = request.form['product_name']
+
+        # Wenn der Name sich nicht geändert hat, dann soll User direkt zur Liste weitergeleitet werden
+        # Datenbankaufruf wird dadurch nicht ausgeführt
         if product_name == product['product_name']:
             flash('Der Name das Produktes wurde nicht geändert!', 'warning')
             return redirect(url_for('all_products'))
 
+        # Produkt nach ID wird gesucht und anschließend der Produktname geändert ($set ...)
         collection.find_one_and_update({"_id": id}, {"$set": {"product_name": product_name}})
         
+        # Nachricht, die als Feedback für den User dient
         flash('Produkt wurde erfolgreich bearbeitet', 'success')
         return redirect(url_for('all_products'))
 
@@ -104,11 +120,15 @@ def delete_product(id):
     db.setCollection('produkte')
     collection = db.col
 
+    # Produkt mit bestimmter ID wird gelöscht
     collection.delete_one({"_id": id})
+
+    # Nachricht, die als Feedback für den User dient
     flash('Produkt wurde erfolgreich entfernt!', 'success')
 
     return redirect(url_for("all_products"))
 
 
 if __name__ == "__main__":
+    # Host muss 0.0.0.0 sein, um im Container laufen zu können
     app.run(host='0.0.0.0')

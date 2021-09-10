@@ -1,28 +1,25 @@
 import pymongo
 import os
 
-# Klasse der Datenbank
-# Ist ein Singleton, d.h. es kann global nur eine Instanz erzeugt werden
-# -> Datenbankverbindung muss nicht ständig neu hergestellt werden
-#
-# Die Instanz erhält man, über Database.getInstance(), danach kann normal mit den Attributen und Variablen weitergearbeitet werden.
-# z.B. Database.getInstance().setdatabase() oder ...().col.find()
-
-
 class Database:
 
     __instance: None
 
+    # Es kann global nur eine Instanz erzeugt werden (Singleton),
+    # wodurch die Datenbankverbindung nicht ständig neu hergestellt werden muss
     @staticmethod
     def getInstance():
         if Database.__instance == None:
             Database()
         return Database.__instance
 
+    # Verbindung zur Datenbank wird hergestellt
     def __init__(self):
         self.conn = pymongo.MongoClient(os.getenv("MONGO_DB_URI"))
         Database.__instance = self
 
+    # --- Getter-Setter Methoden ---
+    
     def setDatabase(self, db):
         self.db = self.conn[db]
 
