@@ -3,7 +3,6 @@
 {% block content %}
     <h1>Produkt hinzufügen</h1>
     <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
         <p>
             {{ form.product_name.label }}<br>
             {{ form.product_name(size=32, class_="input", placeholder="Name") }}
