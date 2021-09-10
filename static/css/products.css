@@ -1,0 +1,15 @@
+.product {
+  background-color: rgba(170, 154, 154, 0.849);
+  padding: 20px;
+  margin: 10px 0 10px 0;
+  width: 250px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}

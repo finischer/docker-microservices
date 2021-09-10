@@ -20,7 +20,7 @@ class Database:
         return Database.__instance
 
     def __init__(self):
-        self.conn = pymongo.MongoClient(os.getenv('MONGO_DB_URI'))
+        self.conn = pymongo.MongoClient(os.getenv("MONGO_DB_URI"))
         Database.__instance = self
 
     def setDatabase(self, db):

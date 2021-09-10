@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> {{ title }} - Produktverwaltung </title>
+        <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/products.css') }}">
+    </head>
+    <body>
+        <ul>
+            {% for product in products %}
+                <li class="product">
+                    <p> Name:  {{ product.product_name }} </p>
+                    <p> Hinzugefügt am: {{ product.hinzugefuegt}} </p>
+                </li>
+            {% endfor %}
+        </ul>  
+    </body>
+</html>
