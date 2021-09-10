@@ -109,7 +109,7 @@ def edit_product(id):
         collection.find_one_and_update({"_id": id}, {"$set": {"product_name": product_name}})
         
         # Nachricht, die als Feedback für den User dient
-        flash('Produkt wurde erfolgreich bearbeitet', 'success')
+        flash('Produkt wurde erfolgreich bearbeitet!', 'success')
         return redirect(url_for('all_products'))
 
     return render_template('edit_product.html', product=product, form=form)
