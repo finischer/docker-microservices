@@ -1,17 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> {{ title }} - Produktverwaltung </title>
-        <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/products.css') }}">
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Produkte</h1>
+<div class="message">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <h4>{{ message }}</h4>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+<div class="produkte">
+            {% if products|length == 0 %}
+                <h3>Keine Produkte verfügbar!</h3>
+            {% else %}
         <ul>
             {% for product in products %}
-                <li class="product">
+            <a href="/product/{{product._id}}">
+                <li class="product product-hover">
+                    <p> Produkt-ID: {{product._id}}</p>
                     <p> Name:  {{ product.product_name }} </p>
                     <p> Hinzugefügt am: {{ product.hinzugefuegt}} </p>
                 </li>
+            </a>  
             {% endfor %}
-        </ul>  
-    </body>
-</html>
+        </ul>
+        {% endif %}
+</div>
+    
+{% endblock %} 
+   

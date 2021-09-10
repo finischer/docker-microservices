@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Produkt - {{product.product_name}}</h1>
+<div class="product-block">
+    <ul>
+            <li class="product">
+                <p> Produkt-ID: {{product._id}}</p>
+                <p> Name:  {{ product.product_name }} </p>
+                <p> Hinzugefügt am: {{ product.hinzugefuegt}} </p>
+            </li>
+            <div class="buttons">
+                <a href="/edit_product/{{product._id}}" class="btn btn-outlined">Bearbeiten</a>
+                <a href="/delete_product/{{product._id}}" class="btn btn-outlined">Produkt entfernen</a>
+            </div>
+    </ul>
+    
+</div>
+    
+{% endblock %} 
+   

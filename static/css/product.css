@@ -1,0 +1,8 @@
+.product-block {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  margin-top: 20px;
+}

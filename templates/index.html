@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> {{title}} - Produktverwaltung </title>
-    </head>
-    <body>
-        {% for x in range(10) %}
-            <p>{{ x }}</p>
-        {% endfor %}
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Willkommen zur Produktverwaltung</h1>
+{% endblock %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Produktverwaltung</title>
+        {% else %}
+        <title>Produktverwaltung</title>
+        {% endif %}
+        <link rel="stylesheet" href="../static/css/products.css">
+        <link rel="stylesheet" href="../static/css/product.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+      </head>
+    <body>
+        <div class="navigation">
+            <div class="menue-field"><a href="/home">Startseite</a></div>
+            <div class="menue-field"><a href="/add_product">Produkt hinzufügen</a></div>
+            <div class="menue-field"><a href="/products">Alle Produkte anzeigen</a></div>
+        </div>
+        <hr>
+        {% block content %} {% endblock %}
+    </body>
+</html>
