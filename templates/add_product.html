@@ -6,7 +6,7 @@
         {{ form.hidden_tag() }}
         <p>
             {{ form.product_name.label }}<br>
-            {{ form.product_name(size=32) }}
+            {{ form.product_name(size=32, class_="input", placeholder="Name") }}
         </p>
         <p>{{ form.submit(class_="btn btn-contained") }}</p>
     </form>

@@ -60,7 +60,7 @@ def add_product():
         }
 
         collection.insert_one(product)
-        flash('Produkt wurde erfolgreich hinzugefügt')
+        flash('Produkt wurde erfolgreich hinzugefügt!', 'success')
         return redirect(url_for('all_products'))
 
     return render_template('add_product.html', form=form)
@@ -87,10 +87,13 @@ def edit_product(id):
 
     if form.validate_on_submit():
         product_name = request.form['product_name']
+        if product_name == product['product_name']:
+            flash('Der Name das Produktes wurde nicht geändert!', 'warning')
+            return redirect(url_for('all_products'))
 
         collection.find_one_and_update({"_id": id}, {"$set": {"product_name": product_name}})
         
-        flash('Produkt wurde erfolgreich bearbeitet')
+        flash('Produkt wurde erfolgreich bearbeitet', 'success')
         return redirect(url_for('all_products'))
 
     return render_template('edit_product.html', product=product, form=form)
@@ -102,7 +105,7 @@ def delete_product(id):
     collection = db.col
 
     collection.delete_one({"_id": id})
-    flash('Produkt wurde erfolgreich entfernt!')
+    flash('Produkt wurde erfolgreich entfernt!', 'success')
 
     return redirect(url_for("all_products"))
 
