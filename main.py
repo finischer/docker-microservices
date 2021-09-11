@@ -47,7 +47,7 @@ def all_products():
     
     return render_template('products.html', title="Produkte", products=products)
     
-@app.route("/add_product", methods=['GET', 'POST'])
+@app.route("/product/add", methods=['GET', 'POST'])
 def add_product():
     db.setDatabase('meta')
     db.setCollection('produkte')
@@ -85,7 +85,7 @@ def get_product(id):
 
     return render_template('product.html', product=product)
 
-@app.route("/edit_product/<string:id>", methods=['GET', 'POST'])
+@app.route("/product/edit/<string:id>", methods=['GET', 'POST'])
 def edit_product(id):
     db.setDatabase('meta')
     db.setCollection('produkte')
@@ -114,7 +114,7 @@ def edit_product(id):
 
     return render_template('edit_product.html', product=product, form=form)
 
-@app.route("/delete_product/<string:id>", methods=['GET'])
+@app.route("/product/delete/<string:id>", methods=['GET'])
 def delete_product(id):
     db.setDatabase('meta')
     db.setCollection('produkte')
