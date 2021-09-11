@@ -18,10 +18,13 @@ services:
     networks:
       - database-network
     volumes:
+      - mongo-config:/data/configdb
       - mongo-data:/data/db
 networks:
   database-network:
     driver: bridge
 volumes:
   mongo-data:
+    driver: local
+  mongo-config:
     driver: local
