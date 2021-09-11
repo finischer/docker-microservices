@@ -10,7 +10,7 @@ In der Powershell muss zuerst mit `cd` zum Projektpfad navigiert werden.
 docker build -t ms-produktverwaltung .
 ```
 
-### 3. Image starten
+### 3. Image starten oder Schritt 4
 ```
 docker run -it `
 --name produktverwaltung-client1 `
@@ -24,7 +24,12 @@ ms-produktverwaltung
 `-e MONGO_DB_URI` wird von MongoDB vergeben und die eigene URI muss dort eingefügt werden. **Ansonsten wird keine Verbindung hergestellt.**  
 `-e SECRET_KEY` kann beliebig gewählt werden, sollte aber geheim bleiben. 
 
+### 4. Docker Compose nutzen
+In der Powershell muss zuerst mit `cd` zum Projektpfad navigiert werden.
+`docker compose up`  
+Hiermit werden automatisch eine MongoDB erstellt und ein Container aus ms-produktverwaltung erstellt. Alle Networks und Ports werden automatisch konfiguriert.
+(Aktuell muss der `SECRET_KEY` dafür noch im Skript stehen oder in der `docker-compose.yml`, damit es funktioniert.)
 
-### 4. Browser öffnen und Seite aufrufen
+### 5. Browser öffnen und Seite aufrufen
 Im Browser auf folgende Seite gehen: `http://localhost:5000/`
 
