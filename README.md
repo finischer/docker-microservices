@@ -21,7 +21,7 @@ ms-produktverwaltung
 ```  
 
 `--name` kann beliebig gewählt werden.  
-`-e MONGO_DB_URI` wird von MongoDB vergeben und muss dort eingefügt werden.  
+`-e MONGO_DB_URI` wird von MongoDB vergeben und die eigene URI muss dort eingefügt werden. **Ansonsten wird keine Verbindung hergestellt.**  
 `-e SECRET_KEY` kann beliebig gewählt werden, sollte aber geheim bleiben. 
 
 
