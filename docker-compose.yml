@@ -2,6 +2,9 @@ version: "3"
 services:
   api-server:
     image: ms-produktverwaltung
+# Secret Key muss entweder hier stehen oder im Code im Image
+#    environment:
+#      - SECRET_KEY='\xda\xe4\xf0\xe9v\x80\xf1Z\xbdw\xef\x07u\xa1C\xac'
     ports:
       - "5000:5000"
     networks:
