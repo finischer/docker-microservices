@@ -3,10 +3,6 @@ from .APIs.Product import Product
 
 import sys
 
-# Routen-Klasse
-# Bündelt und registriert alle Api-Endpunkte des Backends in einer Klasse
-# Neue Endpunkte können einfach in der Methode register(self) hinzugefügt werden.
-
 
 class Routes():
 
