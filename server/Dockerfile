@@ -1,7 +1,5 @@
 FROM python:rc-alpine
 COPY ./src /temp/src
-COPY ./static /temp/static
-COPY ./templates /temp/templates
 COPY ./main.py /temp/main.py
 COPY ./requirements.txt /temp/requirements.txt
 RUN pip install -r /temp/requirements.txt
