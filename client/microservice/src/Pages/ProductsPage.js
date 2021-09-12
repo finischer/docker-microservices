@@ -24,11 +24,9 @@ export default function ProductsPage() {
   }, []);
 
   return (
-    <>
+    <div className="produkte">
       <h1>Produkte</h1>
-      <div className="produkte">
-        {loading ? <h4>Loading...</h4> : <ProductList productList={products} />}
-      </div>
-    </>
+      {loading ? <h4>Loading...</h4> : <ProductList productList={products} />}
+    </div>
   );
 }

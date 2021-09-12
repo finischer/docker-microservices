@@ -9,7 +9,7 @@ export default function ProductList({ productList }) {
       <>
         {productList.map((product) => (
           <a key={product._id} href={`/product/${product._id}`}>
-            <Product product={product} />
+            <Product product={product} class="product-hover" />
           </a>
         ))}
       </>
