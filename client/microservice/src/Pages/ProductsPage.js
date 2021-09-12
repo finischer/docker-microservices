@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // CSS
 import "../css/products.css";
 import { getProducts } from "../Api/api";
-import ProductList from "../Components/ProductList";
+import ProductList from "../components/ProductList";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);

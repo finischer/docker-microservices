@@ -7,7 +7,7 @@ import {
   getProductById,
   updateProductById,
 } from "../Api/api";
-import Product from "../Components/Product";
+import Product from "../components/Product";
 
 export default function ProductPage() {
   const [product, setProduct] = useState({});

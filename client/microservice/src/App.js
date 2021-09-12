@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navigation from "./Components/Navigation";
-import AddProductPage from "./Pages/AddProductPage";
+import Navigation from "./components/Navigation";
+import AddProductPage from "./pages/AddProductPage";
 
-import HomePage from "./Pages/HomePage";
-import ProductsPage from "./Pages/ProductsPage";
-import ProductPage from "./Pages/ProductPage";
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
