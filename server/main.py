@@ -1,7 +1,9 @@
 from flask import Flask
 from flask_restful import Api
+from flask_cors import CORS
 from src.database import Database
 from src.routes import Routes
+
 
 import os
 
@@ -10,6 +12,7 @@ import os
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['DEBUG'] = True
+CORS(app, resources={r"/api/*"})
 api = Api(app)
 
 # Datenbank wird initialisiert
