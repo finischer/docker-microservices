@@ -1,35 +1,20 @@
 # docker-microservices
 
+### Images, die genutzt wurden
+Client: `docker pull niklasfischer0/client-produktverwaltung`  
+Microserver: `docker pull niklasfischer0/client-produktverwaltung`  
+Datenbank: `docker pull mongo:3.6.19-xenial`  
+
 ## Ausführung
 
 ### 1. Projekt runterladen und Shell öffnen
-In der Powershell muss zuerst mit `cd` zum Projektpfad navigiert werden.
+In der Powershell muss zuerst mit `cd` zum Pfad navigiert werden, wo sich die Datei `docker-compose.yml` befindet.
 
-### 2. Image erstellen
-```
-docker build -t ms-produktverwaltung .
-```
-
-### 3. Image starten oder Schritt 4
-```
-docker run -it `
---name produktverwaltung-client1 `
--p 5000:5000 `
--e MONGO_DB_URI="mongodb+srv://<username>:<password>@primary.t8iub.mongodb.net/meta?retryWrites=true&w=majority" `
--e SECRET_KEY="\xda\xe4\xf0\xe9v\x80\xf1Z\xbdw\xef\x07u\xa1C\xac" `
-ms-produktverwaltung
-```  
-
-`--name` kann beliebig gewählt werden.  
-`-e MONGO_DB_URI` wird von MongoDB vergeben und die eigene URI muss dort eingefügt werden. **Ansonsten wird keine Verbindung hergestellt.**  
-`-e SECRET_KEY` kann beliebig gewählt werden, sollte aber geheim bleiben. 
-
-### 4. Docker Compose nutzen
-In der Powershell muss zuerst mit `cd` zum Projektpfad navigiert werden.
-`docker compose up`  
-Hiermit werden automatisch eine MongoDB erstellt und ein Container aus ms-produktverwaltung erstellt. Alle Networks und Ports werden automatisch konfiguriert.
+### 2. Docker Compose nutzen
+Befehl `docker compose up` ausführen.  
+Hiermit werden automatisch alle notwendigen Images runtergeladen, eine MongoDB erstellt und 3 Container (Client, Microservice und Datenbank) erstellt/gestartet. Alle Networks und Ports werden automatisch konfiguriert.
 (Aktuell muss der `SECRET_KEY` dafür noch im Skript stehen oder in der `docker-compose.yml`, damit es funktioniert.)
 
-### 5. Browser öffnen und Seite aufrufen
-Im Browser auf folgende Seite gehen: `http://localhost:5000/`
+### 3. Browser öffnen und Seite aufrufen
+Im Browser auf folgende Seite gehen: `http://localhost:3000/`
 
