@@ -20,6 +20,12 @@ services:
     volumes:
       - mongo-config:/data/configdb
       - mongo-data:/data/db
+  client-server:
+    image: client-server
+    ports:
+      - "3000:3000"
+    networks:
+      - database-network
 networks:
   database-network:
     driver: bridge
