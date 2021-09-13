@@ -10,9 +10,10 @@ import os
 
 # API konfigurieren
 app = Flask(__name__)
+CORS(app, resources={r"/*"})
+
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 app.config['DEBUG'] = True
-CORS(app, resources={r"/api/*"})
 api = Api(app)
 
 # Datenbank wird initialisiert
