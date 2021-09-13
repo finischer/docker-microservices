@@ -1,7 +1,7 @@
 version: "3"
 services:
   api-server:
-    image: ms-produktverwaltung
+    image: niklasfischer0/ms-produktverwaltung
     # Secret Key muss entweder hier stehen oder im Code im Image
     environment:
       - SECRET_KEY='\xda\xe4\xf0\xe9v\x80\xf1Z\xbdw\xef\x07u\xa1C\xac'
@@ -20,8 +20,8 @@ services:
     volumes:
       - mongo-config:/data/configdb
       - mongo-data:/data/db
-  client-server:
-    image: client-server
+  client-produktverwaltung:
+    image: niklasfischer0/client-produktverwaltung
     ports:
       - "3000:3000"
     networks:
