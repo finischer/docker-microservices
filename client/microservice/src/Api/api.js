@@ -1,7 +1,7 @@
 import axios from "axios";
 import { resolve } from "../utils/resolve";
 
-const BASE = "http://192.168.0.108:5000";
+const BASE = "http://localhost:5000";
 
 const instance = axios.create({
   baseURL: BASE,
