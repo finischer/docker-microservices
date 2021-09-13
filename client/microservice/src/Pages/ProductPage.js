@@ -35,7 +35,7 @@ export default function ProductPage() {
 
   const handleUpdateProduct = async (id, product) => {
     await updateProductById(id, product).then(() => {
-      window.alert("Produkte wurde erfolgreich geändert!");
+      window.alert("Produkt wurde erfolgreich geändert!");
       window.location.reload();
     });
   };
