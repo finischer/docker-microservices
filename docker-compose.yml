@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 services:
   api-server:
     image: niklasfischer0/ms-produktverwaltung
@@ -23,7 +23,7 @@ services:
   client-produktverwaltung:
     image: niklasfischer0/client-produktverwaltung
     ports:
-      - "3000:3000"
+      - "8080:8080"
     networks:
       - database-network
 networks:
