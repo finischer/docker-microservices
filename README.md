@@ -2,7 +2,7 @@
 
 ### Images, die genutzt wurden
 Client: `docker pull niklasfischer0/client-produktverwaltung`  
-Microserver: `docker pull niklasfischer0/client-produktverwaltung`  
+Microserver: `docker pull niklasfischer0/ms-produktverwaltung`  
 Datenbank: `docker pull mongo:3.6.19-xenial`  
 
 ## Ausführung
@@ -16,5 +16,5 @@ Hiermit werden automatisch alle notwendigen Images runtergeladen, eine MongoDB e
 (Aktuell muss der `SECRET_KEY` dafür noch im Skript stehen oder in der `docker-compose.yml`, damit es funktioniert.)
 
 ### 3. Browser öffnen und Seite aufrufen
-Im Browser auf folgende Seite gehen: `http://localhost:3000/`
+Im Browser auf folgende Seite gehen: `http://localhost:8080/`
 
