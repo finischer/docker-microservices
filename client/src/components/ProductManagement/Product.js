@@ -1,7 +1,7 @@
 import React from "react";
 
 // CSS
-import "../css/product.css";
+import "../../css/product.css";
 
 export default function Product({
   product,
