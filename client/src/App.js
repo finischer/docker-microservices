@@ -6,6 +6,9 @@ import AddProductPage from "./pages/AddProductPage";
 import HomePage from "./pages/HomePage";
 import ProductsPage from "./pages/ProductsPage";
 import ProductPage from "./pages/ProductPage";
+import MoviesPage from "./pages/MoviesPage";
+import FilmPage from "./pages/FilmPage";
+import AddFilmPage from "./pages/AddFilmPage";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/products" exact component={ProductsPage} />
         <Route path="/product/add" exact component={AddProductPage} />
         <Route path="/product/:id" exact children={<ProductPage />} />
+        <Route path="/movies" exact component={MoviesPage} />
+        <Route path="/film/add" exact component={AddFilmPage} />
+        <Route path="/film/:id" exact children={<FilmPage />} />
       </Switch>
     </Router>
   );

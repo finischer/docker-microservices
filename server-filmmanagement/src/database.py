@@ -15,7 +15,7 @@ class Database:
 
     # Verbindung zur Datenbank wird hergestellt
     def __init__(self):
-        self.conn = pymongo.MongoClient('mongodb://mongo:27017/movies')
+        self.conn = pymongo.MongoClient('mongodb://localhost:27017/movies')
         Database.__instance = self
 
     # --- Getter-Setter Methoden ---

@@ -14,6 +14,12 @@ export default function Navigation() {
         <div className="menue-field">
           <a href="/products">Alle Produkte anzeigen</a>
         </div>
+        <div className="menue-field">
+          <a href="/movies">Alle Filme anzeigen</a>
+        </div>
+        <div className="menue-field">
+          <a href="/film/add">Film hinzufügen</a>
+        </div>
       </div>
       <hr />
     </>
