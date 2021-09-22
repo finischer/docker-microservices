@@ -1,7 +1,7 @@
 version: "3.8"
 services:
-  api-server:
-    image: niklasfischer0/ms-produktverwaltung
+  productapi:
+    image: maltestein/productapi
     # Secret Key muss entweder hier stehen oder im Code im Image
     environment:
       - SECRET_KEY='\xda\xe4\xf0\xe9v\x80\xf1Z\xbdw\xef\x07u\xa1C\xac'
@@ -10,18 +10,39 @@ services:
     networks:
       - database-network
     depends_on:
-      - mongo
-  mongo:
+      - mongoproducts
+  filmapi:
+    image: maltestein/filmapi
+    # Secret Key muss entweder hier stehen oder im Code im Image
+    environment:
+      - SECRET_KEY='\xda\xe4\xf0\xe9v\x80\xf1Z\xbdw\xef\x07u\xa1C\xac'
+    ports:
+      - "5001:5000"
+    networks:
+      - database-network
+    depends_on:
+      - mongomovies
+  mongoproducts:
     image: mongo:3.6.19-xenial
     ports:
       - "27017:27017"
     networks:
       - database-network
     volumes:
-      - mongo-config:/data/configdb
-      - mongo-data:/data/db
+      - mongoproducts-config:/data/configdb
+      - mongoproducts-data:/data/db
+  mongomovies:
+    image: mongo:3.6.19-xenial
+    command: mongod --port 27018
+    ports:
+      - "27018:27018"
+    networks:
+      - database-network
+    volumes:
+      - mongomovies-config:/data/configdb
+      - mongomovies-data:/data/db
   client-produktverwaltung:
-    image: niklasfischer0/client-produktverwaltung
+    image: maltestein/client
     ports:
       - "8080:8080"
     networks:
@@ -30,7 +51,11 @@ networks:
   database-network:
     driver: bridge
 volumes:
-  mongo-data:
+  mongoproducts-data:
     driver: local
-  mongo-config:
+  mongoproducts-config:
+    driver: local
+  mongomovies-config:
+    driver: local
+  mongomovies-data:
     driver: local
