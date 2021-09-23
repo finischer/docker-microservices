@@ -2,7 +2,7 @@
 
 ### Images, die genutzt wurden
 Client: `docker pull maltestein/client`  
-Produkt-API: `docker pull maltestein/productapi`
+Produkt-API: `docker pull maltestein/productapi`  
 Film-API: `docker pull maltestein/filmapi`  
 Datenbank: `docker pull mongo:3.6.19-xenial`  
 
