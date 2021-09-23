@@ -1,8 +1,9 @@
 # docker-microservices
 
 ### Images, die genutzt wurden
-Client: `docker pull niklasfischer0/client-produktverwaltung`  
-Microserver: `docker pull niklasfischer0/ms-produktverwaltung`  
+Client: `docker pull maltestein/client`  
+Produkt-API: `docker pull maltestein/productapi`
+Film-API: `docker pull maltestein/filmapi`  
 Datenbank: `docker pull mongo:3.6.19-xenial`  
 
 ## Ausführung
